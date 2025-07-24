@@ -9,9 +9,7 @@ st.write(
   """Choose the fruits you want in your custom Smoothie!"""
 )
 
-smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
-# st.text(smoothiefroot_response.json())
-sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
+
 
 
 name_on_order = st.text_input("Name on Smoothie:")
@@ -35,6 +33,8 @@ if ingredients_list:
  
     for fruit in ingredients_list:
         ingredients_str += fruit + ' '
+        smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+        sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
  
     #st.write(ingredients_str)
  
